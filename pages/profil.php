@@ -28,7 +28,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);	// establi
 
 if(isset($_SESSION['login'])){
 
-	$quest = " SELECT login,password FROM utilisateurs";
+	$quest = " SELECT login,password FROM utilisateurs ";
 
 	$req = mysqli_query($conn,$quest);
 

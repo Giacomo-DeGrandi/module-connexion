@@ -48,7 +48,7 @@ if (	(isset($_POST["login"])) && $_POST['login'] != ''){
 				$_SESSION["login"]++;
 				$_SESSION["password"]++;
 			}
-		}
+		} 
 		
 		if (isset($_POST['submit'])){
 

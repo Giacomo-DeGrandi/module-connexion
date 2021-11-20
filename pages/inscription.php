@@ -16,7 +16,7 @@ if( (isset($_POST['login'])&& ($_POST['login']) != '') &&
 
 			$login = $_POST['login'];
 			$prenom = $_POST['prenom'];
-			$nom = $_POST['nom'];
+			$nom = $_POST['nom']; 
 			$password = $_POST['password'];
 
 			$quest= " INSERT INTO utilisateurs( login, prenom, nom, password) VALUES ('$login','$prenom','$nom','$password') ";
@@ -31,7 +31,7 @@ if( (isset($_POST['login'])&& ($_POST['login']) != '') &&
 
 	} else {
 
-		echo 'Fill up all the fields';
+		echo 'All fields are required*';
 	}
 
 
