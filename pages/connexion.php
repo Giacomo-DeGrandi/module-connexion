@@ -23,7 +23,7 @@ session_start();
 // MySql part
 
 $servername = 'localhost';
-$username = 'root';
+$username = 'root'; 
 $password = '';
 $database = 'moduleconnexion';
 
