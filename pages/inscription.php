@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 
 // Connection to database 
 
@@ -29,7 +30,13 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 				foreach($res[$i] as $k => $v){		
 					if($v !== $_POST['login']){
 
-								// Here i continue posing my conditions
+
+							// here i  open a session to be able to collect logins names 
+																	// like this if i recharge my page i can avoid to send two times the 
+																	// same order to db
+
+
+			// Here i continue posing my conditions
 
 						if  (   (isset($_POST['prenom'])&& ($_POST['prenom']) != '') &&
 								 	(isset($_POST['nom'])&& ($_POST['nom']) != '') &&
