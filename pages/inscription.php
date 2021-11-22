@@ -84,8 +84,8 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 		<input type="text" name="login" placeholder="login" ><br>
 		<input type="text" name="prenom" placeholder="prenom"><br>
 		<input type="text" name="nom" placeholder="nom" ><br>
-		<input type="text" name="password" placeholder="password"><br>
-		<input type="text" name="passwordconf" placeholder="confirm_password" ><br><br>
+		<input type="password" name="password" placeholder="password"><br>
+		<input type="password" name="passwordconf" placeholder="confirm_password" ><br><br>
 		<input type="submit" name="submit" value="send">
 	</form>
 	<br>

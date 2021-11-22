@@ -18,12 +18,17 @@ session_start();
 		align-content: center;
 	}
 
+	input::placeholder {
+  		color: black;
+	}
+
+
 	</style>
 </head>
 <body>
 	<form action='' method='post'>
 			<input type="text" name="login" placeholder="login" ><br>
-			<input type="text" name="password" placeholder="password"><br>
+			<input type="password" name="password" placeholder="password"><br>
 	<input type="submit" name="submit" value='Log In'>
 	</form>
 
@@ -49,12 +54,12 @@ $database = 'moduleconnexion';
 		$usercheck=0;
 
 
-				if (	(isset($_POST["login"])) && $_POST['login'] != ''){				// check if empty and exists
-					if (	(isset($_POST["password"])) && $_POST['password'] != '') {
+				if (	(isset($_POST["login"])) and $_POST['login'] != ''){				// check if empty and exists
+					if (	(isset($_POST["password"])) and $_POST['password'] != '') {
 
 						foreach($res as $k => $v){
 
-							if( $_POST['login'] === $v['login'] &&	$_POST['login'] !== 'admin' ){
+							if( $_POST['login'] === $v['login'] and	$_POST['login'] !== 'admin' ){
 
 								$usercheck++;
 
@@ -62,21 +67,16 @@ $database = 'moduleconnexion';
 								
 								$admincheck++;
 
-							} else {
-
-								//echo 'wrong log in name';
-								
-
 							}
 
-							if ($_POST['password'] === $v['password'] && $_POST['password'] !== 'admin' ){
+							if ($_POST['password'] === $v['password'] and $_POST['password'] !== 'admin' ){
 
 								$usercheck++;
 
 									if ($usercheck === 2 ){
 
-										$_SESSION['connected'][]=$_POST['login'];
-										$_SESSION['login'][]=$_POST['login'];
+										$_SESSION['connected']=$_POST['login'];
+										$_SESSION['login']=$_POST['login'];
 
 
 										header( 'Location: profil.php');
@@ -88,17 +88,11 @@ $database = 'moduleconnexion';
 
 								if ($admincheck === 2){
 
-									$_SESSION['adminconnected'][]=$_POST['login'];
+									$_SESSION['adminconnected']=$_POST['login'];
 
 										header( 'Location: admin.php');
 								}
-
-							} else {
-
-								//echo 'wrong password';
-							
 							}
-
 						}	// foreach 
 
 					}	else {	echo 'please insert your password'; }
