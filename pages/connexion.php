@@ -9,27 +9,14 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="modcon.css" rel="stylesheet"> 
 	<title>Connexion</title>
-	<style type="text/css">	
-
-	body{
-		display: flex;
-		justify-content: center;
-		align-content: center;
-	}
-
-	input::placeholder {
-  		color: black;
-	}
-
-
-	</style>
 </head>
-<body>
+<body id="connbody">
 	<form action='' method='post'>
 			<input type="text" name="login" placeholder="login" ><br>
 			<input type="password" name="password" placeholder="password"><br>
-	<input type="submit" name="submit" value='Log In'>
+	<input type="submit" name="submit" value="Log In" class="buttons1">
 	</form>
 
 <?php

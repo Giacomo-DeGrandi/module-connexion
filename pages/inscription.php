@@ -63,19 +63,10 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="modcon.css" rel="stylesheet"> 
 	<title>Inscription</title>
-	<style type="text/css">	
-
-	body{
-		display: flex;
-		justify-content: center;
-		align-content: center;
-
-	}
-
-	</style>
 </head>
-<body>
+<body id="iscbody">
 <header>
 </header>
 <main>
@@ -86,11 +77,11 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 		<input type="text" name="nom" placeholder="nom" ><br>
 		<input type="password" name="password" placeholder="password"><br>
 		<input type="password" name="passwordconf" placeholder="confirm_password" ><br><br>
-		<input type="submit" name="submit" value="send">
+		<input type="submit" name="submit" value="send" class="buttons1">
 	</form>
 	<br>
 	<a href="../index.php" target="_top">go back to the home page </a>
-	<br>
+	<br><br>
 	<a href="connexion.php" target="_top">Already Signed Up? Log in </a>
 </main>
 </body>
