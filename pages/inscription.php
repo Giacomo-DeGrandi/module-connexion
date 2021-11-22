@@ -26,7 +26,7 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 			$res = mysqli_fetch_all($req, MYSQLI_ASSOC);
 
 			for($i=0; $i<isset($res[$i]); $i++){
-				foreach($res[$i] as $k => $v){		
+				foreach($res[$i] as $k => $v){	
 					if($v !== $_POST['login']){
 
 			// Here i continue posing my conditions
