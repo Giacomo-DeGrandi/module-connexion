@@ -44,26 +44,54 @@ $database = 'moduleconnexion';
 
 		$res = mysqli_fetch_all($req, MYSQLI_ASSOC); 
 
+		$admincheck=0;
+
+		$usercheck= 0;
+
 
 				if (	(isset($_POST["login"])) && $_POST['login'] != ''){				// check if empty and exists
 					if (	(isset($_POST["password"])) && $_POST['password'] != '') {
 
 						foreach($res as $k => $v){
-							//echo $v['login'];
-							foreach($v as $k2 => $v2){
+							if( $_POST['login'] === $v['login']){
+								$usercheck ++;
+								if ($_POST['password'] === $v['password']){
 
-									var_dump($v2);
+									$usercheck++;
+
+									if ($usercheck === 2 ){
+
+										$_SESSION['connected'][]=$_POST['login'];
+
+										header( 'Location: profil.php');
+									}
+
+								}	elseif ($_POST['password'] === 'admin' )  {	
+
+									$admincheck++; 
+
+									if( $admincheck === 2 ){
+
+										header( 'Location: admin.php');
+									}
+
+								}	else {
+
+									echo 'wrong password';
 									
-									/*
-									if(	(isset($_POST['password']) == $v2))	{
+									break;
+								}
+							} elseif ($_POST['login'] === 'admin' ) {
 
+								$admincheck++;
+							 
+							} else {	
 
-									$_SESSION['connected'][]=$_POST['login'];	
-									header('Location: profil.php');
+								echo 'wrong log in name';
 
-									}	*/
+								break;
 							}
-						}	
+						}
 					}	else {	echo 'please insert your password'; }
 				}	else { echo 'please insert your login name';}
 
