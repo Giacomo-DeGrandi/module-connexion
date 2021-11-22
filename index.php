@@ -14,7 +14,12 @@
 <header>
 </header>
 <main>
-	<a href="pages/inscription.php" target="_top"> SUBSCRIBE HERE </a>
+	<h1> welcome to the hall</h1><br>
+	<a href="pages/inscription.php" target="_top">SIGN UP </a>
+	<br><br>
+	<a href="pages/connexion.php" target="_top">LOG IN</a>
+	<div id="onlineusers">
+	</div>
 
 <?php
 

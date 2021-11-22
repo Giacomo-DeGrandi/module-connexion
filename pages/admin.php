@@ -11,8 +11,18 @@ session_start();
 	<link href="modcon.css" rel="stylesheet"> 
 </head>
 <body>
+<main>
+	<header>
+		<form action='' method="post">
+			<input type="submit" name="disconnect" value="disconnect" class="buttons1">
+		</form>
+</header>
+	<h1> Hi Admin </h1>
 
 <?php
+
+echo "<p>users</p>";
+
 
 $servername = 'localhost';
 $username = 'root';
@@ -43,7 +53,7 @@ if(isset($_SESSION['login'])){
 <?php
 
 foreach($res[0] as $k => $v){
-	echo '<td>'. $k . '</td>';
+	echo '<th>'. $k . '</th>';
 }
 
 
@@ -54,9 +64,28 @@ foreach ($res as $k2 => $v2){
 		}
 }
 
+if (isset($_POST['disconnect'])){
+	unset($_SESSION['login']);
+	header("Location: connexion.php");
+}
+
 ?>
 
 </tr>
 </table>
+
+<h2>choose a user to update:</h2>
+	<form action='' method="post">
+		<input type="text" name="login" placeholder="login" ><br>
+	</form>
+
+<?php
+
+
+
+
+?>
+
+
 </body>
 </html>

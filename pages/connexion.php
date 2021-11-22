@@ -13,10 +13,10 @@ session_start();
 	<title>Connexion</title>
 </head>
 <body id="connbody">
-	<form action='' method='post'>
-			<input type="text" name="login" placeholder="login" ><br>
-			<input type="password" name="password" placeholder="password"><br>
-	<input type="submit" name="submit" value="Log In" class="buttons1">
+	<form action='' method='post' id="connform"><br><br>
+			<input type="text" name="login" placeholder="login" ><br><br>
+			<input type="password" name="password" placeholder="password"><br><br>
+	<input type="submit" name="submit" value="Log In" class="buttons1"><br><br>
 	</form>
 
 <?php

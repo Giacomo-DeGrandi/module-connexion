@@ -11,7 +11,7 @@ session_start();
 	<link href="modcon.css" rel="stylesheet"> 
 </head>
 <body>
-	<header id="profil_header">
+	<header>
 		<form action='' method="post">
 		<input type="submit" name="disconnect" value="disconnect" class="buttons1">
 		</form>
@@ -58,7 +58,7 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 					echo '<div id="tablediv">  <table><tr>';
 
 					foreach($res2[0] as $k => $v){
-						echo '<td>'. $k . '</td>';
+						echo '<th>'. $k . '</th>';
 							}
 
 					foreach ($res2 as $k4 => $v4){
@@ -112,8 +112,6 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 								$myid = $_SESSION['login'];
 
 								$quest2= "UPDATE utilisateurs SET login = '$login', prenom = '$prenom', nom = '$nom', password = '$password' WHERE login = '$myid'";
-
-								$_POST['login'] = $nulog;
 
 								$req2 = mysqli_query($conn,$quest2);
 

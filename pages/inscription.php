@@ -50,7 +50,7 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 								}	
 						}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
-					}	else {	echo 'error . log in name alreasy exists';	}							//**if($v !== $_POST['l..
+					}	else {	echo '<h4>error . log in name alreasy exists</h4>';	}							//**if($v !== $_POST['l..
 				}
 			}
 } 
