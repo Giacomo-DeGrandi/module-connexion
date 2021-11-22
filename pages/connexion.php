@@ -46,18 +46,31 @@ $database = 'moduleconnexion';
 
 		$admincheck=0;
 
-		$usercheck= 0;
+		$usercheck=0;
 
 
 				if (	(isset($_POST["login"])) && $_POST['login'] != ''){				// check if empty and exists
 					if (	(isset($_POST["password"])) && $_POST['password'] != '') {
 
 						foreach($res as $k => $v){
-							if( $_POST['login'] === $v['login']){
-								$usercheck ++;
-								if ($_POST['password'] === $v['password']){
+							if( $_POST['login'] === $v['login'] &&	$_POST['login'] !== 'admin' ){
 
-									$usercheck++;
+								$usercheck++;
+
+							} elseif ($_POST['login'] === 'admin') {	
+								
+								$admincheck++;
+
+							} else {
+
+								echo 'wrong log in name';
+								break;
+
+							}
+
+							if ($_POST['password'] === $v['password'] && $_POST['password'] !== 'admin' ){
+
+								$usercheck++;
 
 									if ($usercheck === 2 ){
 
@@ -66,32 +79,25 @@ $database = 'moduleconnexion';
 										header( 'Location: profil.php');
 									}
 
-								}	elseif ($_POST['password'] === 'admin' )  {	
-
-									$admincheck++; 
-
-									if( $admincheck === 2 ){
-
-										header( 'Location: admin.php');
-									}
-
-								}	else {
-
-									echo 'wrong password';
-									
-									break;
-								}
-							} elseif ($_POST['login'] === 'admin' ) {
+							}	elseif ($_POST['login'] === 'admin') {
 
 								$admincheck++;
-							 
-							} else {	
 
-								echo 'wrong log in name';
+								if ($admincheck === 2){
 
+									$_SESSION['adminconnected'][]=$_POST['login'];
+
+										header( 'Location: admin.php');
+								}
+
+							} else {
+
+								echo 'wrong password';
 								break;
 							}
-						}
+
+						}	// foreach 
+
 					}	else {	echo 'please insert your password'; }
 				}	else { echo 'please insert your login name';}
 
@@ -109,6 +115,28 @@ $database = 'moduleconnexion';
 									//	echo '<a href="inscription.php">Subscribe to Log In</a>';
 									//}
 							//}
+				/*
+
+
+								if ($_POST['login'] === 'admin' ) {
+
+								$admincheck++;
+							 
+								} 
+
+								if ($_POST['password'] === 'admin' )  {	
+
+											$admincheck++; 
+
+											if( $admincheck === 2 ){
+
+												header( 'Location: admin.php');
+											}
+										}
+
+
+								*/
+
 
 ?>
 

@@ -23,7 +23,7 @@
 <header>
 </header>
 <main>
-	<a href="pages/inscription.php" target="_top"> SUBSCRIBE HERE ! </a>
+	<a href="pages/inscription.php" target="_top"> SUBSCRIBE HERE </a>
 
 <?php
 
