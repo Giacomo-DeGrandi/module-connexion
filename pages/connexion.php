@@ -10,6 +10,15 @@ session_start();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Connexion</title>
+	<style type="text/css">	
+
+	body{
+		display: flex;
+		justify-content: center;
+		align-content: center;
+	}
+
+	</style>
 </head>
 <body>
 	<form action='' method='post'>
@@ -27,53 +36,51 @@ $username = 'root';
 $password = '';
 $database = 'moduleconnexion';
 
-$conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
+		$conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
 
-$quest = "SELECT login, password FROM utilisateurs "; 
+		$quest = "SELECT login, password FROM utilisateurs "; 
 
 		$req = mysqli_query($conn,$quest);
 
-		$res = mysqli_fetch_all($req, MYSQLI_ASSOC);
-
-		foreach($res as $v){
-			if($v == $_POST["login"] and $v == $_POST["password"]){
-
-				echo $v;
+		$res = mysqli_fetch_all($req, MYSQLI_ASSOC); 
 
 
+				if (	(isset($_POST["login"])) && $_POST['login'] != ''){				// check if empty and exists
+					if (	(isset($_POST["password"])) && $_POST['password'] != '') {
 
-if (	(isset($_POST["login"])) && $_POST['login'] != ''){
-	if (	(isset($_POST["password"])) && $_POST['password'] != '') {
+						foreach($res as $k => $v){
+							//echo $v['login'];
+							foreach($v as $k2 => $v2){
 
-
-
-
-			//	$_SESSION["login"][] = $_POST["login"];
-
-			//	$_SESSION["password"][] = $_POST["password"];
-
-			//	if($v === 'admin'){
-			//		header( "Location: admin.php" );
-			//	}
-
-			//	echo 'HELLO' .'<h1>'. $_POST["login"] .'</h1>'.'YOU\'RE NOW LOGGED IN';
-
-			//	echo '<br><a href="profil.php"><input type="submit" value="profile" name="profile></a>';
-
-			//		$_SESSION["login"]++;
-			//		$_SESSION["password"]++;
-
-			//	if (isset($_POST['submit'])){
-
-			//	header( "Location: profil.php" );
-			//	}
-			}
-		} 
-	}
-}
+									var_dump($v2);
+									
+									/*
+									if(	(isset($_POST['password']) == $v2))	{
 
 
+									$_SESSION['connected'][]=$_POST['login'];	
+									header('Location: profil.php');
 
+									}	*/
+							}
+						}	
+					}	else {	echo 'please insert your password'; }
+				}	else { echo 'please insert your login name';}
+
+
+							//if(	(isset($_POST['login']) === $v))	{
+							//	if(	(isset($_POST['password']) === $v))	{
+
+									//	$_SESSION['connected'][]=$_POST['submit']; 
+
+									//	$_SESSION['login'][]=$_POST['login']; 
+
+									//	header('Location: profil.php');
+										
+									//}	else {
+									//	echo '<a href="inscription.php">Subscribe to Log In</a>';
+									//}
+							//}
 
 ?>
 

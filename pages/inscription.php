@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 // Connection to database 
 
@@ -30,17 +29,11 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 				foreach($res[$i] as $k => $v){		
 					if($v !== $_POST['login']){
 
-
-							// here i  open a session to be able to collect logins names 
-																	// like this if i recharge my page i can avoid to send two times the 
-																	// same order to db
-
-
 			// Here i continue posing my conditions
 
-						if  (   (isset($_POST['prenom'])&& ($_POST['prenom']) != '') &&
-								 	(isset($_POST['nom'])&& ($_POST['nom']) != '') &&
-								 	(isset($_POST['password'])&& ($_POST['password']) != '')	)	{	//**
+						if  (   (isset($_POST['prenom']) and ($_POST['prenom']) != '') and
+								 	(isset($_POST['nom']) and ($_POST['nom']) != '') and
+								 	(isset($_POST['password']) and ($_POST['password']) != '')	)	{	//**
 
 								$login = $_POST['login'];
 								$prenom = $_POST['prenom'];
@@ -72,6 +65,14 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Inscription</title>
 	<style type="text/css">	
+
+	body{
+		display: flex;
+		justify-content: center;
+		align-content: center;
+
+	}
+
 	</style>
 </head>
 <body>
@@ -90,7 +91,7 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 	<br>
 	<a href="../index.php" target="_top">go back to the home page </a>
 	<br>
-	<a href="connexion.php" target="_top">Already Signed Up? Log in here </a>
+	<a href="connexion.php" target="_top">Already Signed Up? Log in </a>
 </main>
 </body>
 </html>

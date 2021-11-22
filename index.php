@@ -9,7 +9,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Mod Connect</title>
-	<style type="text/css">	
+		<style type="text/css">	
+
+	body{
+		display: flex;
+		justify-content: center;
+		align-content: center;
+	}
+
 	</style>
 </head>
 <body>
