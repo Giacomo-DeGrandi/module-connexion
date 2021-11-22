@@ -33,9 +33,6 @@ $conn = mysqli_connect($servername, $username, $password, $database);	// establi
 
 	$res = mysqli_fetch_all($req); 
 
-	
-	$_SESSION['id']=$res[0][1];
-	$_SESSION['login']=$res[0][0];
 
 if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 
@@ -53,7 +50,7 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 
 					$res2 = mysqli_fetch_all($req2, MYSQLI_ASSOC); 
 
-					echo '<h4> Your personal informations are </h4><br>';
+					echo '<h4> Your personal informations are </h4><hr><br>';
 
 					echo '<div id="tablediv">  <table><tr>';
 

@@ -65,6 +65,9 @@ table td{
 h1 {
 	padding: 2vh;
 }
+hr {
+	color: white;
+}
 
 #tablediv {
 	display: flex;
@@ -72,7 +75,7 @@ h1 {
 	flex-direction: column;
 	border: solid 1px white;
 	border-radius: 2vh;
-	background-color: #035E7B;
+	background: linear-gradient(0deg, #FF8E72 0%, #55286F 100%);
 	color:	#FF7F7F2 ;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -102,7 +105,7 @@ main {
 }
 
 .buttons1 {
-	background: linear-gradient(90deg, #FF8E72 0%, #55286F 100%);
+	background: linear-gradient(0deg, #FF8E72 0%, #55286F 100%);
 	border-radius: 2vh;
 	border: 0px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
