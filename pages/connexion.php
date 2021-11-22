@@ -53,6 +53,7 @@ $database = 'moduleconnexion';
 					if (	(isset($_POST["password"])) && $_POST['password'] != '') {
 
 						foreach($res as $k => $v){
+
 							if( $_POST['login'] === $v['login'] &&	$_POST['login'] !== 'admin' ){
 
 								$usercheck++;
@@ -63,8 +64,8 @@ $database = 'moduleconnexion';
 
 							} else {
 
-								echo 'wrong log in name';
-								break;
+								//echo 'wrong log in name';
+								
 
 							}
 
@@ -75,6 +76,8 @@ $database = 'moduleconnexion';
 									if ($usercheck === 2 ){
 
 										$_SESSION['connected'][]=$_POST['login'];
+										$_SESSION['login'][]=$_POST['login'];
+
 
 										header( 'Location: profil.php');
 									}
@@ -92,8 +95,8 @@ $database = 'moduleconnexion';
 
 							} else {
 
-								echo 'wrong password';
-								break;
+								//echo 'wrong password';
+							
 							}
 
 						}	// foreach 
