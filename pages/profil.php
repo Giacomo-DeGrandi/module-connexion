@@ -78,7 +78,7 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 		<form action='' method='post'>	
 			<input type="text" name="login" placeholder="login" ><br>
 			<input type="text" name="prenom" placeholder="prenom"><br>
-			<input type="text" name="nom" placeholder="nom" ><br>
+			<input type="text" name="nom" placeholder="nom"><br>
 			<input type="password" name="password" placeholder="password"><br>
 			<br>
 			<input type="submit" name="submit" value="send" class="buttons1">
@@ -112,7 +112,8 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 								$req2 = mysqli_query($conn,$quest2);
 
-								if(isset($_POST['submit'])){		
+								if(isset($_POST['submit'])){
+
 									header( "Location: profil.php" );
 								}	
 						}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
@@ -123,6 +124,8 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 if (isset($_POST['disconnect'])){
 	unset($_SESSION['login']);
+	unset($_SESSION['connected']);
+
 	header("Location: connexion.php");
 }
 

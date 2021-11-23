@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
 
 
-body{
+body {
 			font-family: 'Poppins', sans-serif;
-			background: linear-gradient(90deg, #002E2C 0%, #381D2A 100%);
+			background: rgb(16,26,74);
+			background: radial-gradient(circle, rgba(16,26,74,1) 0%, rgba(63,8,66,1) 100%);
 			color: white;
 
 }
@@ -17,6 +18,22 @@ a {
 	border-radius: 2vh;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
+}
+
+#adminmain {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 3vh;
+}
+
+#admintable {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 3vh;
 }
 
 #connbody {

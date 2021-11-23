@@ -11,12 +11,12 @@ session_start();
 	<link href="modcon.css" rel="stylesheet"> 
 </head>
 <body>
-<main>
+<main id="adminmain">
 	<header>
 		<form action='' method="post">
 			<input type="submit" name="disconnect" value="disconnect" class="buttons1">
 		</form>
-</header>
+	</header>
 	<h1> Hi Admin </h1>
 
 <?php
@@ -31,7 +31,6 @@ $database = 'moduleconnexion';
 
 $conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
 
-if(isset($_SESSION['login'])){
 
 	$quest = " SELECT * FROM utilisateurs ";
 
@@ -44,10 +43,10 @@ if(isset($_SESSION['login'])){
 			foreach($v2 as $k3 => $v3){
 			}
 		}
-}
+
 ?>
 
-<table>
+<table id="admintable">
 	<tr>
 
 <?php
@@ -66,6 +65,7 @@ foreach ($res as $k2 => $v2){
 
 if (isset($_POST['disconnect'])){
 	unset($_SESSION['login']);
+	unset($_SESSION['adminconnected']);
 	header("Location: connexion.php");
 }
 
@@ -76,16 +76,18 @@ if (isset($_POST['disconnect'])){
 
 <h2>choose a user to update:</h2>
 	<form action='' method="post">
-		<input type="text" name="login" placeholder="login" ><br>
+		<input type="text" name="login" placeholder="login name" ><br>
 	</form>
 
 <?php
 
+if(isset($_POST['login'])){
 
+}
 
 
 ?>
 
-
+</main>
 </body>
 </html>
