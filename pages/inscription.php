@@ -33,22 +33,30 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 						if  (   (isset($_POST['prenom']) and ($_POST['prenom']) != '') and
 								 	(isset($_POST['nom']) and ($_POST['nom']) != '') and
-								 	(isset($_POST['password']) and ($_POST['password']) != '')	)	{	//**
+								 	(isset($_POST['password']) and ($_POST['password']) != '') and
+									(isset($_POST['passwordconf']) and ($_POST['passwordconf']) != '') )  {	//**
+								if( $_POST['password'] == $_POST['passwordconf']){ 
 
-								$login = $_POST['login'];
-								$prenom = $_POST['prenom'];
-								$nom = $_POST['nom']; 
-								$password = $_POST['password'];
+									/* Remember to validate the password. */
 
-								$quest2= " INSERT INTO utilisateurs( login, prenom, nom, password) VALUES ('$login','$prenom','$nom','$password') ";
+									/* Create the new password hash. */
 
-								$req2 = mysqli_query($conn,$quest2);
 
-								if(isset($_POST['submit'])){
-								
-									header( "Location: connexion.php" );
+									$login = $_POST['login'];
+									$prenom = $_POST['prenom'];
+									$nom = $_POST['nom']; 
+									$password = $_POST['password'];
 
-								}	
+									$quest2= " INSERT INTO utilisateurs( login, prenom, nom, password) VALUES ('$login','$prenom','$nom','$password') ";
+
+									$req2 = mysqli_query($conn,$quest2);
+
+									if(isset($_POST['submit'])){
+									
+										header( "Location: connexion.php" );
+
+									}	
+								} else { echo 'error . passwords are not matching'; }
 						}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
 					}	else {	echo '<h4>error . log in name alreasy exists</h4>';	}							//**if($v !== $_POST['l..
 				}

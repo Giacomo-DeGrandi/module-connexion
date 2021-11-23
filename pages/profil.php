@@ -73,16 +73,25 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 		</tr>
 		</table>
 	</div> <!-- first main div -->
-	<div id="formdiv">
-		<h3> Update your personal information here </h3>
-		<form action='' method='post'>	
-			<input type="text" name="login" placeholder="login" ><br>
-			<input type="text" name="prenom" placeholder="prenom"><br>
-			<input type="text" name="nom" placeholder="nom"><br>
-			<input type="password" name="password" placeholder="password"><br>
-			<br>
-			<input type="submit" name="submit" value="send" class="buttons1">
-		</form>
+	<div id="wrapform">
+		<div id="formdiv">
+			<h3> Update your personal information here </h3>
+			<form action='' method='post'>	
+				<input type="text" name="login" placeholder="login" ><br>
+				<input type="text" name="prenom" placeholder="prenom"><br>
+				<input type="text" name="nom" placeholder="nom"><br>
+				<input type="password" name="password" placeholder="password"><br>
+				<br>
+				<input type="submit" name="submit" value="send" class="buttons1">
+			</form>
+		</div>
+		<div id="noteform">
+			<label for="note">.Note</label>
+			<form action='' method='post'>
+				<textarea id="note" name="note" rows="10" cols="50">
+				</textarea>
+			</form>
+		</div>
 	</div>
 
 <?php	
@@ -116,6 +125,7 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 									header( "Location: profil.php" );
 								}	
+
 						}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
 					}	else {	echo 'error . log in name alreasy exists';	}							//**if($v !== $_POST['l..
 				}

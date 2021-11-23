@@ -12,12 +12,17 @@ session_start();
 	<link href="modcon.css" rel="stylesheet"> 
 	<title>Connexion</title>
 </head>
-<body id="connbody">
-	<form action='' method='post' id="connform"><br><br>
-			<input type="text" name="login" placeholder="login" ><br><br>
-			<input type="password" name="password" placeholder="password"><br><br>
-	<input type="submit" name="submit" value="Log In" class="buttons1"><br><br>
-	</form>
+<body>
+	<header>
+			<a href="../index.php" target="_top">go back to the home page </a>
+	</header>
+	<div id="connbody">
+		<form action='' method='post' id="connform"><br><br>
+				<input type="text" name="login" placeholder="login" ><br><br>
+				<input type="password" name="password" placeholder="password"><br><br>
+				<input type="submit" name="submit" value="Log In" class="buttons1"><br><br>
+		</form>
+
 
 <?php
 
@@ -123,6 +128,8 @@ $database = 'moduleconnexion';
 
 
 ?>
+
+		</div>  <!-- connbody div -->
 
 </body>
 </html>
