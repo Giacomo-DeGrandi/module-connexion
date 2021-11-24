@@ -17,6 +17,16 @@ session_start();
 		</form>
 	</header>
 	<main>
+		<div id="wrapper">
+	        <form method="post" action="" enctype="multipart/form-data">  <!-- specify the encoding type of the form using the enctype attribute -->
+	            <input type="file" name="choosefile" value="" >
+	            <div>
+	                <button type="submit" name="uploadfile">
+	                UPLOAD
+	                </button>
+	            </div>
+        	</form>
+        </div>
 
 <?php
 

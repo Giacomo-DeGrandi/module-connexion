@@ -42,6 +42,14 @@ a {
 
 }
 
+#minitableadmin th {
+		font-size:  0.8em;
+}
+
+#minitableadmin td {
+		font-size:  0.6em;
+}
+
 #userupdate {
 	margin-left: 3vh;
 }
@@ -164,4 +172,23 @@ header{
 	color: #210B2C ;
 	display: flex;
 	justify-content: flex-end;
+}
+
+#wrapper {
+	flex: display;
+	justify-content: flex-end;
+}
+
+#wrapper form {
+	flex: display;
+	justify-content: flex-end;
+	background-color: rgba(255, 255, 255, 0.486);
+		border-radius: 2vh;
+	float: right;
+}
+
+#wrapper input {
+	font-family: 'Poppins', sans-serif;
+	padding: 1vh;
+
 }

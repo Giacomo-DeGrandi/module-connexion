@@ -116,7 +116,11 @@ if(isset($_POST['idup'])&& ($_POST['idup']) != ''){
 
 			$res = mysqli_fetch_all($req, MYSQLI_ASSOC);
 
-			echo '<table>';
+			echo '<table id="minitableadmin">';
+
+			foreach($res[0] as $k => $v){
+				echo '<th>'. $k .'</th>';
+					}
 
 			foreach($res as $b => $a){
 					echo '<tr>';
