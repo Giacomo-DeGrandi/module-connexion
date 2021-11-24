@@ -54,17 +54,13 @@ $conn = mysqli_connect($servername, $username, $password, $database);	// establi
 foreach($res[0] as $k => $v){
 	echo '<th>'. $k . '</th>';
 }
-
-
 foreach ($res as $k2 => $v2){
 	echo '<tr>';
-
 	foreach($v2 as $k3 => $v3){
 		echo '<td>'. $v3 .' '. '</td>';
 		}
 		
 }
-
 
 if (isset($_POST['disconnect'])){
 	unset($_SESSION['login']);
@@ -72,12 +68,10 @@ if (isset($_POST['disconnect'])){
 	header("Location: connexion.php");
 }
 
-
 ?>
 
 </tr>
 </table>
-
 	<div id="userupdate">
 		<h2>choose a user to update:</h2>
 		<form action='' method="post">
@@ -88,34 +82,56 @@ if (isset($_POST['disconnect'])){
 <?php
 
 
+if(isset($_POST['idup'])&& ($_POST['idup']) != ''){
+	if(isset($_POST['search'])){
+			foreach ($res as $k2 => $v2){
+				foreach($v2 as $k3 => $v3){
+					if($_POST['idup'] == $v3 ){
 
-if(isset($_POST['idup'])){
-	foreach ($res as $k2 => $v2){
-		foreach($v2 as $k3 => $v3){
-			if($_POST['idup'] == $v3 ){
+						$tempid = $_POST['idup'];
 
-				$tempid = $_POST['idup'];
+					}
 
+				}
 			}
-		}
+
+			if( $tempid = $_POST['idup']){
+
+				echo '<div id="changedetails">';
+				echo '<br><form action="" method="post" >	
+							<input type="text" name="login2" placeholder="new login" ><br>
+							<input type="text" name="prenom2" placeholder="new prenom"><br>
+							<input type="text" name="nom2" placeholder="new nom"><br>
+							<input type="password" name="password2" placeholder="new password">
+							<input type="text" name="confirmid" placeholder="confirm id">
+							<br>
+							<input type="submit" name="submit2" value="send" class="buttons1">
+						</form>';
+				echo '</div>';
+			}
+
+			$quest = "SELECT * FROM utilisateurs WHERE id = $tempid "; 
+
+			$req = mysqli_query($conn,$quest);
+
+			$res = mysqli_fetch_all($req, MYSQLI_ASSOC);
+
+			echo '<table>';
+
+			foreach($res as $b => $a){
+					echo '<tr>';
+
+				foreach($a as $r => $s){
+					echo '<td>'. $s .' '. '</td>';
+				}
+			}
 	}
+} else { echo 'enter id'; }
 
-	if( $tempid = $_POST['idup']){
+echo '</tr></table id="tableuserup">';
 
-		echo '<div id="changedetails">';
-		echo '<br><form action="" method="post" >	
-					<input type="text" name="login" placeholder="new login" ><br>
-					<input type="text" name="prenom" placeholder="new prenom"><br>
-					<input type="text" name="nom" placeholder="new nom"><br>
-					<input type="password" name="password" placeholder="new password">
-					<br>
-					<input type="submit" name="submit" value="send" class="buttons1">
-				</form>';
-		echo '</div>';
-	}
-}
 
-if (isset($_POST['login'])&& ($_POST['login']) != '') { 
+if (isset($_POST['login2'])&& ($_POST['login2']) != '') { 
 
 			$quest = "SELECT login FROM utilisateurs "; 
 
@@ -125,32 +141,34 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 			for($i=0; $i<isset($res[$i]); $i++){
 				foreach($res[$i] as $k => $v){	
-					if($v !== $_POST['login']){
-						if  (   (isset($_POST['prenom']) and ($_POST['prenom']) != '') and
-								 	(isset($_POST['nom']) and ($_POST['nom']) != '') and
-								 	(isset($_POST['password']) and ($_POST['password']) != '')	)	{	//**
+						if($v !== $_POST['login2']){
+							if  (   (isset($_POST['prenom2']) and ($_POST['prenom2']) != '') and
+									 	(isset($_POST['nom2']) and ($_POST['nom2']) != '') and
+									 	(isset($_POST['password2']) and ($_POST['password2']) != '')and	
+									 	(isset($_POST['confirmid']) and ($_POST['confirmid']) != '')	)	{	//**															
 
-								$login = $_POST['login'];
-								$prenom = $_POST['prenom'];
-								$nom = $_POST['nom']; 
-								$password = $_POST['password'];
+											if(isset($_POST['submit2'])){
 
-								$quest2= "UPDATE utilisateurs SET login = '$login', prenom = '$prenom', nom = '$nom', password = '$password' WHERE login = '$tempid' ";
+												$login = $_POST['login2'];
+												$prenom = $_POST['prenom2'];
+												$nom = $_POST['nom2']; 
+												$password = $_POST['password2'];
+												$id2 = $_POST['confirmid'];
 
-								$req2 = mysqli_query($conn,$quest2);
+												$quest2= "UPDATE utilisateurs SET login = '$login', prenom = '$prenom', nom = '$nom', password = '$password' WHERE id = '$id2' ";
 
-								if(isset($_POST['submit'])){
+												mysqli_query($conn,$quest2);
 
-									header( "Location: adimin.php" );
-								}	
+												header( "Location: admin.php" );
+											}	
 
-						}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
-					}	else {	echo 'error . log in name alreasy exists';	}							//**if($v !== $_POST['l..
+							}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
+						}	else {	echo 'error . log in name alreasy exists';	}							//**if($v !== $_POST['l..
+					
+					
 				}
 			}
 } 
-
-
 
 ?>
 		</div>   <!--userupdate -->
