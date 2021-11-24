@@ -18,17 +18,50 @@ session_start();
 	</header>
 	<main>
 		<div id="wrapper">
-	        <form method="post" action="" enctype="multipart/form-data">  <!-- specify the encoding type of the form using the enctype attribute -->
-	            <input type="file" name="choosefile" value="" >
+	        <form method="post" action="" enctype="multipart/form-data" class="buttons1">  <!-- specify the encoding type of the form using the enctype attribute -->
+	            <input type="file" name="choosefile" value="" class="buttons1">
 	            <div>
-	                <button type="submit" name="uploadfile">
+	                <button type="submit" name="uploadfile" class="buttons1">
 	                UPLOAD
 	                </button>
 	            </div>
         	</form>
         </div>
-
 <?php
+
+if (isset($_POST['uploadfile'])) {		// check if the user has clicked the button "UPLOAD" INSERT INTO `image`(`id`, `filename`) VALUES ([value-1],[value-2])
+
+    $filename = $_FILES["choosefile"]["name"];
+
+    $tempname = $_FILES["choosefile"]["tmp_name"];  
+
+    $folder = "../image/".$filename;   
+
+    echo $filename;
+
+    $conn = mysqli_connect("localhost", "root", "", "moduleconnexion");     // connect with the database
+
+    $questimg = "INSERT INTO image (filename) VALUES ('$filename')";	        // query to insert the submitted data
+
+        mysqli_query($conn, $questimg);               // function to execute above query
+
+        if (move_uploaded_file($tempname, $folder)) {	        // Add the image to the "image" folder"
+
+            
+            echo '<div id="imgdivuser">';
+            echo "<p>image uploaded successfully</p>";
+			echo '<img src="../image/'.$filename.'">';
+			echo '</div>';
+
+        }else{
+
+            echo "<p>Failed to upload image</p>";
+
+    }
+
+}
+
+
 
 $servername = 'localhost';
 $username = 'root';
@@ -37,7 +70,7 @@ $database = 'moduleconnexion';
 
 $conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
 
-	$quest = " SELECT login,id FROM utilisateurs ";
+	$quest = " SELECT login FROM utilisateurs ";
 
 	$req = mysqli_query($conn,$quest);
 
@@ -50,8 +83,10 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 		foreach($v2 as $k3 => $v3){
 			if($v3 == $_SESSION['login']){
 
+					// My HI USER PART
+
 					echo '<h1>hi '. $v3 . ' you\'re now logged in </h1>';
-					
+	
 					$login = $v3;	//just to make it clear
 
 					$quest2 = " SELECT * FROM utilisateurs WHERE login = '$login' ";
