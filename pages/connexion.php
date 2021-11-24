@@ -59,29 +59,33 @@ $database = 'moduleconnexion';
 									$usercheck++;
 
 									if ($usercheck === 2 ){		
-										//echo $v['id'];
-										//$_SESSION['id']=$k;
-										$_SESSION['connected']=$_POST['login'];
-										$_SESSION['login']=$_POST['login'];
+										
+										$_SESSION['id']=$v['id'];					// here i get my id session 
+										$_SESSION['connected']=$_POST['login'];		// here i get my session status
+										$_SESSION['login']=$_POST['login'];			// here i get my login session
+										
 
-										header( 'Location: profil.php');
+										//header( 'Location: profil.php');
 									}
 								}	
-										//_________________________________________	
 							}
-							elseif ($_POST['login'] === 'admin'){
+							elseif ($_POST['login'] === 'admin' and $v['login'] === 'admin'){
 
 								$admincheck++;
 
-								if($_POST['password'] === 'admin' ) {
+								if($_POST['password'] === 'admin' and $v['login'] === 'admin' ) {
 
 									$admincheck++;
 
 									if( $admincheck === 2){
 
+										$_SESSION['adminid']=$v['id'];
+
 										$_SESSION['adminconnected']=$_POST['login'];
 
-										header( 'Location: admin.php');
+
+
+										//header( 'Location: admin.php');
 									}
 								}
 							}

@@ -60,13 +60,14 @@ a {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 3vh;
+		padding: 2vh;
 }
 
 #connform {
-	padding: 3vh;
+	padding: 2vh;
 }
 #connform input {
+	font-size: 0.8em;
 	padding: 2vh;
 }
 
