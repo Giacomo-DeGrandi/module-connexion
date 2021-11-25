@@ -145,7 +145,7 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 if (isset($_POST['disconnect'])){
 	unset($_SESSION['login']);
-	unset($_SESSION['connected']);
+	unset($_SESSION['connected']); 
 
 	header("Location: connexion.php");
 }

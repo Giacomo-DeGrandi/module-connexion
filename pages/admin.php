@@ -166,7 +166,7 @@ if (isset($_POST['login2'])&& ($_POST['login2']) != '') {
 												header( "Location: admin.php" );
 											}	
 
-							}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
+							}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	 
 						}	else {	echo 'error . log in name alreasy exists';	}							//**if($v !== $_POST['l..
 					
 					

@@ -87,7 +87,7 @@ $database = 'moduleconnexion';
 									}
 								}
 							}
-						}	// foreach 
+						}	// foreach  
 
 					}	else {	echo 'please insert your password'; }
 				}	else { echo 'please insert your login name';}

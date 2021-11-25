@@ -13,7 +13,7 @@ session_start();
 </head>
 <body>
 <header>
-</header>
+</header> 
 <main>
 	<h1> welcome to the hall</h1><br>
 	<a href="pages/inscription.php" target="_top">SIGN UP </a>
