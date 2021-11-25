@@ -63,7 +63,11 @@ $database = 'carlo-de-grandi-giacomo_modconnection';
 										$_SESSION['id']=$v['id'];					// here i get my id session 
 										$_SESSION['connected']=$_POST['login'];		// here i get my session status
 										$_SESSION['login']=$_POST['login'];			// here i get my login session
-										
+
+
+										$quest2= "UPDATE utilisateurs SET status = 1";
+
+										$req2 = mysqli_query($conn,$quest2);
 
 										header( 'Location: profil.php');
 									}
@@ -78,6 +82,10 @@ $database = 'carlo-de-grandi-giacomo_modconnection';
 									$admincheck++;
 
 									if( $admincheck === 2){
+
+										$quest2= "UPDATE utilisateurs SET statusad = 1";
+
+										$req2 = mysqli_query($conn,$quest2);
 
 										$_SESSION['adminid']=$v['id'];
 

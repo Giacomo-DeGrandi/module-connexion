@@ -63,8 +63,11 @@ foreach ($res as $k2 => $v2){
 }
 
 if (isset($_POST['disconnect'])){
-	unset($_SESSION['login']);
-	unset($_SESSION['adminconnected']);
+
+	$quest2= "UPDATE utilisateurs SET statusad = 0";
+
+	$req2 = mysqli_query($conn,$quest2);
+
 	header("Location: connexion.php");
 }
 
@@ -102,7 +105,6 @@ if(isset($_POST['idup'])&& ($_POST['idup']) != ''){
 							<input type="text" name="login2" placeholder="new login" ><br>
 							<input type="text" name="prenom2" placeholder="new prenom"><br>
 							<input type="text" name="nom2" placeholder="new nom"><br>
-							<input type="password" name="password2" placeholder="new password">
 							<input type="text" name="confirmid" placeholder="confirm id">
 							<br>
 							<input type="submit" name="submit2" value="send" class="buttons1">
@@ -148,7 +150,6 @@ if (isset($_POST['login2'])&& ($_POST['login2']) != '') {
 						if($v !== $_POST['login2']){
 							if  (   (isset($_POST['prenom2']) and ($_POST['prenom2']) != '') and
 									 	(isset($_POST['nom2']) and ($_POST['nom2']) != '') and
-									 	(isset($_POST['password2']) and ($_POST['password2']) != '')and	
 									 	(isset($_POST['confirmid']) and ($_POST['confirmid']) != '')	)	{	//**															
 
 											if(isset($_POST['submit2'])){

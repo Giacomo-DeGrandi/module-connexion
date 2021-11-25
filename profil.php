@@ -147,7 +147,10 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 if (isset($_POST['disconnect'])){
 	 
-	$_SESSION['disconnected']=$_POST['login'];
+	$quest2= "UPDATE utilisateurs SET status = 0";
+
+	$req2 = mysqli_query($conn,$quest2);
+
 	header("Location: connexion.php");
 }
 
