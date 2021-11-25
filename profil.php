@@ -55,7 +55,7 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 	
 					$login = $v3;	//just to make it clear
 
-					$quest2 = " SELECT * FROM utilisateurs WHERE login = '$login' ";
+					$quest2 = " SELECT id,login,nom,prenom,password FROM utilisateurs WHERE login = '$login' ";
 
 					$req2 = mysqli_query($conn,$quest2);
 
