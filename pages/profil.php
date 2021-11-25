@@ -16,52 +16,12 @@ session_start();
 		<input type="submit" name="disconnect" value="disconnect" class="buttons1">
 		</form>
 	</header>
-	<main>
+	<main id="mainpro">	
 		<div id="wrapper">
-	        <form method="post" action="" enctype="multipart/form-data" class="buttons1">  <!-- specify the encoding type of the form using the enctype attribute -->
-	            <input type="file" name="choosefile" value="" class="buttons1">
-	            <div>
-	                <button type="submit" name="uploadfile" class="buttons1">
-	                UPLOAD
-	                </button>
-	            </div>
-        	</form>
-        </div>
+			<div id='maindiv'>		
 <?php
 
-if (isset($_POST['uploadfile'])) {		// check if the user has clicked the button "UPLOAD" INSERT INTO `image`(`id`, `filename`) VALUES ([value-1],[value-2])
-
-    $filename = $_FILES["choosefile"]["name"];
-
-    $tempname = $_FILES["choosefile"]["tmp_name"];  
-
-    $folder = "../image/".$filename;   
-
-    echo $filename;
-
-    $conn = mysqli_connect("localhost", "root", "", "moduleconnexion");     // connect with the database
-
-    $questimg = "INSERT INTO image (filename) VALUES ('$filename')";	        // query to insert the submitted data
-
-        mysqli_query($conn, $questimg);               // function to execute above query
-
-        if (move_uploaded_file($tempname, $folder)) {	        // Add the image to the "image" folder"
-
-            
-            echo '<div id="imgdivuser">';
-            echo "<p>image uploaded successfully</p>";
-			echo '<img src="../image/'.$filename.'">';
-			echo '</div>';
-
-        }else{
-
-            echo "<p>Failed to upload image</p>";
-
-    }
-
-}
-
-
+$myidnow = $_SESSION['id'];			//init my id to recall sessions
 
 $servername = 'localhost';
 $username = 'root';
@@ -76,7 +36,6 @@ $conn = mysqli_connect($servername, $username, $password, $database);	// establi
 
 	$res = mysqli_fetch_all($req); 
 
-
 if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 
 	foreach ($res as $k2 => $v2){
@@ -85,7 +44,12 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 
 					// My HI USER PART
 
+					echo '<div id="tablediv">'; 
+
 					echo '<h1>hi '. $v3 . ' you\'re now logged in </h1>';
+
+						//   recall image part
+
 	
 					$login = $v3;	//just to make it clear
 
@@ -97,7 +61,7 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 
 					echo '<h4> Your personal informations are </h4><hr><br>';
 
-					echo '<div id="tablediv">  <table><tr>';
+					echo '<table><tr>';
 
 					foreach($res2[0] as $k => $v){
 						echo '<th>'. $k . '</th>';
@@ -115,30 +79,32 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 }	
 
 ?>
-		</tr>
-		</table>
-	</div> <!-- first main div -->
-	<div id="wrapform">
-		<div id="formdiv">
-			<h3> Update your personal information here </h3>
-			<form action='' method='post'>	
-				<input type="text" name="login" placeholder="login" ><br>
-				<input type="text" name="prenom" placeholder="prenom"><br>
-				<input type="text" name="nom" placeholder="nom"><br>
-				<input type="password" name="password" placeholder="password"><br>
-				<br>
-				<input type="submit" name="submit" value="send" class="buttons1">
-			</form>
-		</div>
-		<div id="noteform">
-			<label for="note">.Note</label>
-			<form action='' method='post'>
-				<textarea id="note" name="note" rows="10" cols="50">
-				</textarea>
-			</form>
-		</div>
-	</div>
+						</tr>
+					</table>
+				</div> <!-- first maintable div -->
 
+		</div>  <!-- main div -->
+	</div>
+			<div id="wrapform">
+				<div id="formdiv">
+					<h3> Update your personal information here </h3>
+					<form action='' method='post'>	
+						<input type="text" name="login" placeholder="login" ><br>
+						<input type="text" name="prenom" placeholder="prenom"><br>
+						<input type="text" name="nom" placeholder="nom"><br>
+						<input type="password" name="password" placeholder="password"><br>
+						<br>
+						<input type="submit" name="submit" value="send" class="buttons1">
+					</form>
+				</div>
+				<div id="noteform">
+					<label for="note">.Note</label>
+					<form action='' method='post'>
+						<textarea id="note" name="note" rows="7" cols="50">
+						</textarea>
+					</form>
+				</div>
+			</div>
 <?php	
 
 if (isset($_POST['login'])&& ($_POST['login']) != '') { 
@@ -168,7 +134,7 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 								if(isset($_POST['submit'])){
 
-									header( "Location: profil.php" );
+									header( "Location: connexion.php" );
 								}	
 
 						}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
@@ -185,7 +151,12 @@ if (isset($_POST['disconnect'])){
 }
 
 ?>
-	<main>
+		
+		<footer>
+			<p>giditree<p>
+				<a href="https://github.com/Giacomo-DeGrandi">mon github</a>
+		</footer>
+		</main>
 </body>
 </html>
 

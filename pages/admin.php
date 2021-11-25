@@ -177,6 +177,10 @@ if (isset($_POST['login2'])&& ($_POST['login2']) != '') {
 ?>
 		</div>   <!--userupdate -->
 	</div> <!--mainwrapper div -->
+	<footer>
+			<p>giditree<p>
+				<a href="https://github.com/Giacomo-DeGrandi">mon github</a>
+		</footer>
 </main>
 </body>
 </html>

@@ -65,7 +65,7 @@ $database = 'moduleconnexion';
 										$_SESSION['login']=$_POST['login'];			// here i get my login session
 										
 
-										//header( 'Location: profil.php');
+										header( 'Location: profil.php');
 									}
 								}	
 							}
@@ -83,9 +83,7 @@ $database = 'moduleconnexion';
 
 										$_SESSION['adminconnected']=$_POST['login'];
 
-
-
-										//header( 'Location: admin.php');
+										header( 'Location: admin.php');
 									}
 								}
 							}
@@ -97,6 +95,10 @@ $database = 'moduleconnexion';
 ?>
 
 		</div>  <!-- connbody div -->
+		<footer>
+			<p>giditree<p>
+				<a href="https://github.com/Giacomo-DeGrandi">mon github</a>
+		</footer>
 
 </body>
 </html>

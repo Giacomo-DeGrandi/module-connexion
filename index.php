@@ -27,6 +27,10 @@ session_start();
 
 
 ?>
+		<footer>
+			<p>giditree<p>
+				<a href="https://github.com/Giacomo-DeGrandi">mon github</a>
+		</footer>
 </main>
 </body>
 </html>

@@ -91,6 +91,11 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 	<a href="../index.php" target="_top">go back to the home page </a>
 	<br><br>
 	<a href="connexion.php" target="_top">Already Signed Up? Log in </a>
+
+	<footer>
+			<p>giditree<p>
+				<a href="https://github.com/Giacomo-DeGrandi">mon github</a>
+	</footer>
 </main>
 </body>
 </html>
