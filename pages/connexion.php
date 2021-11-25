@@ -65,7 +65,7 @@ $database = 'moduleconnexion';
 										$_SESSION['login']=$_POST['login'];			// here i get my login session
 										
 
-										header( 'Location: profil.php');
+										header( 'Location: pages/profil.php');
 									}
 								}	
 							}
@@ -83,7 +83,7 @@ $database = 'moduleconnexion';
 
 										$_SESSION['adminconnected']=$_POST['login'];
 
-										header( 'Location: admin.php');
+										header( 'Location: pages/admin.php');
 									}
 								}
 							}
