@@ -16,9 +16,9 @@ session_start();
 </header> 
 <main>
 	<h1> welcome to the hall</h1><br>
-	<a href="pages/inscription.php" target="_top">SIGN UP </a>
+	<a href="inscription.php" target="_top">SIGN UP </a>
 	<br><br>
-	<a href="pages/connexion.php" target="_top">LOG IN</a>
+	<a href="connexion.php" target="_top">LOG IN</a>
 	<div id="onlineusers">
 	</div>
 
