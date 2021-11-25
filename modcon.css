@@ -213,6 +213,11 @@ header{
 }
 
 footer {
+	font-size: 0.6em;
+	 float: right;
+  height: 3vh;
+  display: flex;
+  align-items: flex-end;
 	height: 1vh;
 	color: whitesmoke;
 }

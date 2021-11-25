@@ -23,10 +23,10 @@ session_start();
 
 $myidnow = $_SESSION['id'];			//init my id to recall sessions
 
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'moduleconnexion';
+$servername = 'localhost:3306';
+$username = 'giditree';
+$password = 'admin.io';
+$database = 'carlo-de-grandi-giacomo_modconnection';
 
 $conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
 
@@ -49,6 +49,8 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 					echo '<h1>hi '. $v3 . ' you\'re now logged in </h1>';
 
 						//   recall image part
+
+
 
 	
 					$login = $v3;	//just to make it clear
@@ -144,9 +146,8 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 } 
 
 if (isset($_POST['disconnect'])){
-	unset($_SESSION['login']);
-	unset($_SESSION['connected']); 
-
+	 
+	$_SESSION['disconnected']=$_POST['login'];
 	header("Location: connexion.php");
 }
 

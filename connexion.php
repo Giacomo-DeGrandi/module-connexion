@@ -14,7 +14,7 @@ session_start();
 </head>
 <body>
 	<header>
-			<a href="../index.php" target="_top">go back to the home page </a>
+			<a href="index.php" target="_top">go back to the home page </a>
 	</header>
 	<div id="connbody">
 		<form action='' method='post' id="connform"><br><br>
@@ -28,10 +28,10 @@ session_start();
 
 // MySql part
 
-$servername = 'localhost';
-$username = 'root'; 
-$password = '';
-$database = 'moduleconnexion';
+$servername = 'localhost:3306';
+$username = 'giditree';
+$password = 'admin.io';
+$database = 'carlo-de-grandi-giacomo_modconnection';
 
 		$conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
 
