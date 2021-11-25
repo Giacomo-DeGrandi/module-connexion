@@ -40,17 +40,17 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 
 	foreach($res as $k => $v){
 		foreach($v as $k2 => $v2){
-			if(($v2['status']===0) or ($v2['statusad']===0)){
+			if(($v2['status']==0) or ($v2['statusad']==0)){
 
 						echo '<tr>';
-						echo '<td>'.$v2['login'].'</td>';
+						echo '<td>'.$v2.'</td>';
 						echo '<td>'.' 🔴'.'</td>';
 						echo '</tr>';
 
-			} elseif (($v2['status']===1) or ($v2['statusad']===1)){
+			} elseif (($v2['status']==1) or ($v2['statusad']==1)){
 
 						echo '<tr>';
-						echo '<td>'.$v2['login'].'</td>';
+						echo '<td>'.$v2.'</td>';
 						echo '<td>'.' 🟢'.'</td>';
 						echo '</tr>';
 
