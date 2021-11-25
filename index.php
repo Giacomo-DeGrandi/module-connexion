@@ -40,7 +40,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 
 	foreach($res as $k => $v){
 		foreach($v as $k2 => $v2){
-			echo $v2;
+			echo $v2['status'];
 		}
 	}
 
