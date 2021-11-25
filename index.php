@@ -37,13 +37,13 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 	$req = mysqli_query($conn,$quest); 
 
 /* fetch associative array */
-while ($row = mysqli_fetch_row($res)) {
+while ($row = mysqli_fetch_row($req)) {
     printf("%s (%s)\n", $row[0], $row[1]);
 }
 
 	/*
 
-	
+
 	foreach($res as $k => $v){
 		foreach($v as $k2 => $v2){
 			if(($v2['status']==0) or ($v2['statusad']==0)){
