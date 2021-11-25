@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 ?>
 
@@ -26,9 +25,26 @@ session_start();
 
 <?php
 
-if(isset($_SESSION['disconnected'])){
+$servername = 'localhost:3306';
+$username = 'giditree';
+$password = 'admin.io';
+$database = 'carlo-de-grandi-giacomo_modconnection';
 
-	echo 'Users are disconnected';
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+	$quest = " SELECT login,status,statusad FROM utilisateurs ";
+
+	$req = mysqli_query($conn,$quest);
+
+	$res = mysqli_fetch_all($req); 
+
+	foreach($res as $k => $v){
+		foreach($v as $k2 => $v2){
+			echo $v2
+		}
+	}
+
+	/*
 
 } elseif (isset($_SESSION['login'])){
 			for($i=0; $i<isset($_SESSION['id']); $i++){
@@ -51,6 +67,7 @@ if(isset($_SESSION['disconnected'])){
 
 }	else {	echo '<h2>looks like there is nobody connected right now 😧 </h2>';		}
 
+*/
 
 ?>
 		</table>
