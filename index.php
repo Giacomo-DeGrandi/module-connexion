@@ -38,7 +38,8 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 
 /* fetch associative array */
 while ($row = mysqli_fetch_row($req)) {
-    printf("%s (%s)\n", $row[0], $row[1]);
+    echo $row[0];
+    echo $row[1];
 }
 
 	/*
