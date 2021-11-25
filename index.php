@@ -38,8 +38,21 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 
 /* fetch associative array */
 while ($row = mysqli_fetch_row($req)) {
-    echo $row[0];
-    echo $row[1];
+	if($row[0] == 0){
+			
+			echo '<tr>';
+			echo '<td>'.$row[1].'</td>';			
+			echo '<td>'.' 🔴'.'</td>';
+			echo '</tr>';
+
+	} elseif ($row[0] == 1){
+
+			echo '<tr>';
+			echo '<td>'.$row[1].'</td>';			
+			echo '<td>'.' 🟢'.'</td>';
+			echo '</tr>';
+	}
+
 }
 
 	/*
