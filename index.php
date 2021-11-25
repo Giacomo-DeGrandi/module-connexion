@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 
 ?>
 
@@ -8,20 +9,28 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Mod Connect</title>
-	<style type="text/css">	
-	</style>
+	<link href="pages/modcon.css" rel="stylesheet"> 
 </head>
 <body>
 <header>
 </header>
 <main>
-	<a href="pages/inscription.php" target="_top"> SUBSCRIBE HERE ! </a>
+	<h1> welcome to the hall</h1><br>
+	<a href="pages/inscription.php" target="_top">SIGN UP </a>
+	<br><br>
+	<a href="pages/connexion.php" target="_top">LOG IN</a>
+	<div id="onlineusers">
+	</div>
 
 <?php
 
 
+
 ?>
+		<footer>
+			<p>giditree<p>
+				<a href="https://github.com/Giacomo-DeGrandi">mon github</a>
+		</footer>
 </main>
 </body>
 </html>
