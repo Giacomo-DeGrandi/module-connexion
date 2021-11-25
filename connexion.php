@@ -64,8 +64,10 @@ $database = 'carlo-de-grandi-giacomo_modconnection';
 										$_SESSION['connected']=$_POST['login'];		// here i get my session status
 										$_SESSION['login']=$_POST['login'];			// here i get my login session
 
+										$login = $_POST['login'];
 
-										$quest2= "UPDATE utilisateurs SET status = 1";
+
+										$quest2= "UPDATE utilisateurs SET status = 1 WHERE login = '$login' ";
 
 										$req2 = mysqli_query($conn,$quest2);
 

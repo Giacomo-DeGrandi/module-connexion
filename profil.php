@@ -145,9 +145,11 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 			}
 } 
 
+$_SESSION['login']= $login;
+
 if (isset($_POST['disconnect'])){
 	 
-	$quest2= "UPDATE utilisateurs SET status = 0";
+	$quest2= "UPDATE utilisateurs SET status = 0 WHERE login = '$login' ";
 
 	$req2 = mysqli_query($conn,$quest2);
 

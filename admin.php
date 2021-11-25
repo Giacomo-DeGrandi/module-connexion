@@ -64,7 +64,7 @@ foreach ($res as $k2 => $v2){
 
 if (isset($_POST['disconnect'])){
 
-	$quest2= "UPDATE utilisateurs SET statusad = 0";
+	$quest2= "UPDATE utilisateurs SET statusad = 0 WHERE login = 'admin' ";
 
 	$req2 = mysqli_query($conn,$quest2);
 
