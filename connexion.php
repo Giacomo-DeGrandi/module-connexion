@@ -85,7 +85,7 @@ $database = 'carlo-de-grandi-giacomo_modconnection';
 
 									if( $admincheck === 2){
 
-										$quest2= "UPDATE utilisateurs SET statusad = 1";
+										$quest2= "UPDATE utilisateurs SET statusad = 1 WHERE login = 'admin'";
 
 										$req2 = mysqli_query($conn,$quest2);
 
