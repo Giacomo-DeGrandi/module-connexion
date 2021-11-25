@@ -213,7 +213,8 @@ header{
 }
 
 footer {
-	height: 4vh;
+	font-size: 0.7em;
+	padding: 1vh;
 	background-color: black;
 	color: whitesmoke;
 }
