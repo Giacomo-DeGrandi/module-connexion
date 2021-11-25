@@ -34,10 +34,16 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 
 	$quest = " SELECT login,status,statusad FROM utilisateurs ";
 
-	$req = mysqli_query($conn,$quest);
+	$req = mysqli_query($conn,$quest); 
 
-	$res = mysqli_fetch_all($req); 
+/* fetch associative array */
+while ($row = mysqli_fetch_row($res)) {
+    printf("%s (%s)\n", $row[0], $row[1]);
+}
 
+	/*
+
+	
 	foreach($res as $k => $v){
 		foreach($v as $k2 => $v2){
 			if(($v2['status']==0) or ($v2['statusad']==0)){
@@ -58,7 +64,6 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 		}
 	}
 
-	/*
 
 } elseif (isset($_SESSION['login'])){
 			for($i=0; $i<isset($_SESSION['id']); $i++){
