@@ -71,7 +71,7 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="modcon.css" rel="stylesheet"> 
+	<link href="livreor.css" rel="stylesheet"> 
 	<title>Inscription</title>
 </head>
 <body id="iscbody">
@@ -91,7 +91,6 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 	<a href="../index.php" target="_top">go back to the home page </a>
 	<br><br>
 	<a href="connexion.php" target="_top">Already Signed Up? Log in </a>
-
 	<footer>
 			<p>giditree<p>
 				<a href="https://github.com/Giacomo-DeGrandi">mon github</a> 
