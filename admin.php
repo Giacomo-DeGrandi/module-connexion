@@ -157,10 +157,9 @@ if (isset($_POST['login2'])&& ($_POST['login2']) != '') {
 												$login = $_POST['login2'];
 												$prenom = $_POST['prenom2'];
 												$nom = $_POST['nom2']; 
-												$password = $_POST['password2'];
 												$id2 = $_POST['confirmid'];
 
-												$quest2= "UPDATE utilisateurs SET login = '$login', prenom = '$prenom', nom = '$nom', password = '$password' WHERE id = '$id2' ";
+												$quest2= "UPDATE utilisateurs SET login = '$login', prenom = '$prenom', nom = '$nom', WHERE id = '$id2' ";
 
 												mysqli_query($conn,$quest2);
 
