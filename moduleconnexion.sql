@@ -3,10 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 25, 2021 at 06:14 AM
--- Server version: 5.7.31
--- PHP Version: 7.3.21
- 
+-- Creato il: Nov 29, 2021 alle 07:01
+-- Versione del server: 5.7.31
+-- Versione PHP: 7.3.21
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisateurs`
+-- Struttura della tabella `utilisateurs`
 --
 
 DROP TABLE IF EXISTS `utilisateurs`;
@@ -34,17 +34,19 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `prenom` varchar(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `status` int(10) NOT NULL DEFAULT '0',
+  `statusad` int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=116 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=118 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `utilisateurs`
+-- Dump dei dati per la tabella `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `login`, `prenom`, `nom`, `password`) VALUES
-(115, 'gidi', 'digi', 'tree', '5678'),
-(114, 'mina', 'bibi', 'bubi', '5678'),
-(1, 'admin', 'admin', 'admin', 'admin');
+INSERT INTO `utilisateurs` (`id`, `login`, `prenom`, `nom`, `password`, `status`, `statusad`) VALUES
+(115, 'digi', 'gidi', 'treedigi', '5678', 0, 0),
+(114, 'mina', 'bibi', 'babi', '1234', 0, 0),
+(1, 'admin', 'admin', 'admin', 'admin', 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -213,6 +213,7 @@ header{
 }
 
 footer {
+	margin-top: 4vh;
 	font-size: 0.6em;
 	 float: right;
   height: 3vh;

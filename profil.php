@@ -23,10 +23,10 @@ session_start();
 
 $myidnow = $_SESSION['id'];			//init my id to recall sessions
 
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'moduleconnexion';
+$servername = 'localhost:3306';
+$username = 'giditree';
+$password = 'admin.io';
+$database = 'carlo-de-grandi-giacomo_modconnection';
 
 $conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
 
@@ -47,11 +47,6 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 					echo '<div id="tablediv">'; 
 
 					echo '<h1>hi '. $v3 . ' you\'re now logged in </h1>';
-
-						//   recall image part
-
-
-
 	
 					$login = $v3;	//just to make it clear
 
@@ -99,27 +94,23 @@ if(isset($_SESSION['login'])){			//||isset($_SESSION['connected'])
 						<input type="submit" name="submit" value="send" class="buttons1">
 					</form>
 				</div>
-				<div id="noteform">
-					<label for="note">.Note</label>
-					<form action='' method='post'>
-						<textarea id="note" name="note" rows="7" cols="50">
-						</textarea>
-					</form>
-				</div>
 			</div>
 <?php	
 
 if (isset($_POST['login'])&& ($_POST['login']) != '') { 
 
-			$quest = "SELECT login FROM utilisateurs "; 
+			$login = $_POST['login']; 
 
-			$req = mysqli_query($conn,$quest);
+			$quest = "SELECT login FROM utilisateurs WHERE login = '$login'"; 
 
-			$res = mysqli_fetch_all($req, MYSQLI_ASSOC);
+			$req = mysqli_query($conn, $quest);
 
-			for($i=0; $i<isset($res[$i]); $i++){
-				foreach($res[$i] as $k => $v){	
-					if($v !== $_POST['login']){
+			$res = mysqli_fetch_all($req);
+
+			if (mysqli_num_rows($req) != 0){
+				echo '<h4>this username already exists. please choose another username</h4>';
+				return;
+			} else { 
 						if  (   (isset($_POST['prenom']) and ($_POST['prenom']) != '') and
 								 	(isset($_POST['nom']) and ($_POST['nom']) != '') and
 								 	(isset($_POST['password']) and ($_POST['password']) != '')	)	{	//**
@@ -136,12 +127,14 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 								if(isset($_POST['submit'])){
 
+									$quest3= "UPDATE utilisateurs SET status = 0 WHERE login = '$login' "; //disconnect when finished
+
+									$req3 = mysqli_query($conn,$quest3);
+
 									header( "Location: connexion.php" );
 								}	
 
 						}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
-					}	else {	echo 'error . log in name alreasy exists';	}							//**if($v !== $_POST['l..
-				}
 			}
 } 
 

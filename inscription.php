@@ -1,77 +1,10 @@
-<?php
-
-
-// Connection to database 
-
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'moduleconnexion';
-			
-			$conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
-
-
-// Pose my conditions to validate forms if all fields are filled
-
-			// I start with login to check if it already exist , if it exists, i send an error message
-			// like this i don't have to stay checking the connection form and relate it to the id but is sufficient the login name 
-
-if (isset($_POST['login'])&& ($_POST['login']) != '') { 
-
-
-			$quest = "SELECT login FROM utilisateurs "; 
-
-			$req = mysqli_query($conn,$quest);
-
-			$res = mysqli_fetch_all($req, MYSQLI_ASSOC);
-
-			for($i=0; $i<isset($res[$i]); $i++){
-				foreach($res[$i] as $k => $v){	
-					if($v !== $_POST['login']){
-
-			// Here i continue posing my conditions
-
-						if  (   (isset($_POST['prenom']) and ($_POST['prenom']) != '') and
-								 	(isset($_POST['nom']) and ($_POST['nom']) != '') and
-								 	(isset($_POST['password']) and ($_POST['password']) != '') and
-									(isset($_POST['passwordconf']) and ($_POST['passwordconf']) != '') )  {	//**
-								if( $_POST['password'] == $_POST['passwordconf']){ 
-
-									/* Remember to validate the password. */
-
-									/* Create the new password hash. */
-
-
-									$login = $_POST['login'];
-									$prenom = $_POST['prenom'];
-									$nom = $_POST['nom']; 
-									$password = $_POST['password'];
-
-									$quest2= " INSERT INTO utilisateurs( login, prenom, nom, password) VALUES ('$login','$prenom','$nom','$password') ";
-
-									$req2 = mysqli_query($conn,$quest2);
-
-									if(isset($_POST['submit'])){
-									
-										header( "Location: connexion.php" );
-
-									}	
-								} else { echo 'error . passwords are not matching'; }
-						}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	
-					}	else {	echo '<h4>error . log in name alreasy exists</h4>';	}							//**if($v !== $_POST['l..
-				}
-			}
-} 
-
-
-?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="livreor.css" rel="stylesheet"> 
+	<link href="modcon.css" rel="stylesheet"> 
 	<title>Inscription</title>
 </head>
 <body id="iscbody">
@@ -87,6 +20,67 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 		<input type="password" name="passwordconf" placeholder="confirm_password" ><br><br>
 		<input type="submit" name="submit" value="send" class="buttons1">
 	</form>
+<?php
+
+
+// Connection to database 
+
+$servername = 'localhost:3306';
+$username = 'giditree';
+$password = 'admin.io';
+$database = 'carlo-de-grandi-giacomo_modconnection';
+			
+			$conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
+
+
+if  ((isset($_POST['login']) and ($_POST['login']) != '')){
+
+			//check if username already exists
+
+			$login = $_POST['login']; 
+
+			$quest = "SELECT login FROM utilisateurs WHERE login = '$login'"; 
+
+			$req = mysqli_query($conn, $quest);
+
+			$res = mysqli_fetch_all($req);
+
+			if (mysqli_num_rows($req) != 0){
+				echo '<h4>this username already exists. please choose another username</h4>';
+				return;
+			} else { 	
+				if  (   (isset($_POST['prenom']) and ($_POST['prenom']) != '') and
+								 	(isset($_POST['nom']) and ($_POST['nom']) != '') and
+								 	(isset($_POST['password']) and ($_POST['password']) != '') and
+									(isset($_POST['passwordconf']) and ($_POST['passwordconf']) != '') )  {	
+								if( $_POST['password'] === $_POST['passwordconf']){
+									if(isset($_POST['submit'])){
+
+										$login = $_POST['login'];
+										$prenom = $_POST['prenom'];
+										$nom = $_POST['nom']; 
+										$password = $_POST['password'];
+										$status = 0;
+										$statusad =0;
+
+										$quest2= " INSERT INTO utilisateurs( login, prenom, nom, password, status, statusad) VALUES ('$login','$prenom','$nom','$password', '$status', '$statusad' ) ";
+
+										$req2 = mysqli_query($conn,$quest2);
+
+										header( "Location: connexion.php" );
+
+									}	
+								} else { echo '<span class="ads"> passwords don\'t match </span>';
+								}
+				} else {  echo '<span class="ads"> please insert your details </span>'; 
+				}
+			}
+}
+
+
+
+?>
+
 	<br>
 	<a href="../index.php" target="_top">go back to the home page </a>
 	<br><br>

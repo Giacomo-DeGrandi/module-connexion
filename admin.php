@@ -31,10 +31,10 @@ $database = 'carlo-de-grandi-giacomo_modconnection';
 
 */
 
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'moduleconnexion';
+$servername = 'localhost:3306';
+$username = 'giditree';
+$password = 'admin.io';
+$database = 'carlo-de-grandi-giacomo_modconnection';
 
 $conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
 
@@ -146,15 +146,17 @@ echo '</tr></table id="tableuserup">';
 
 if (isset($_POST['login2'])&& ($_POST['login2']) != '') { 
 
-			$quest = "SELECT login FROM utilisateurs "; 
+			//check if username already exists
 
-			$req = mysqli_query($conn,$quest);
+			$login = $_POST['login2']; 
 
-			$res = mysqli_fetch_all($req, MYSQLI_ASSOC);
+			$quest = "SELECT login FROM utilisateurs WHERE login = '$login'"; 
 
-			for($i=0; $i<isset($res[$i]); $i++){
-				foreach($res[$i] as $k => $v){	
-						if($v !== $_POST['login2']){
+			$req = mysqli_query($conn, $quest);
+
+			if (mysqli_num_rows($req) != 0){
+				echo '<h4>this username already exists. please choose another username</h4>';
+			} else { 
 							if  (   (isset($_POST['prenom2']) and ($_POST['prenom2']) != '') and
 									 	(isset($_POST['nom2']) and ($_POST['nom2']) != '') and
 									 	(isset($_POST['confirmid']) and ($_POST['confirmid']) != '')	)	{	//**															
@@ -166,7 +168,7 @@ if (isset($_POST['login2'])&& ($_POST['login2']) != '') {
 												$nom = $_POST['nom2']; 
 												$id2 = $_POST['confirmid'];
 
-												$quest2= "UPDATE utilisateurs SET login = '$login', prenom = '$prenom', nom = '$nom', WHERE id = '$id2' ";
+												$quest2= "UPDATE utilisateurs SET login = '$login', prenom = '$prenom', nom = '$nom', status = 0, statusad = 0 WHERE id = '$id2' ";
 
 												mysqli_query($conn,$quest2);
 
@@ -174,10 +176,6 @@ if (isset($_POST['login2'])&& ($_POST['login2']) != '') {
 											}	
 
 							}	else { 	echo 'error . all fields are required';	}						//**isset($_POST['pass.	 
-						}	else {	echo 'error . log in name alreasy exists';	}							//**if($v !== $_POST['l..
-					
-					
-				}
 			}
 } 
 
