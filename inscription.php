@@ -26,7 +26,7 @@
 // Connection to database 
 
 $servername = 'localhost:3306';
-$username = 'giditree';
+$username = 'giditree1';
 $password = 'admin.io';
 $database = 'carlo-de-grandi-giacomo_modconnection';
 			
