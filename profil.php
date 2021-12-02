@@ -127,6 +127,8 @@ if (isset($_POST['login'])&& ($_POST['login']) != '') {
 
 									$req3 = mysqli_query($conn,$quest3);
 
+									header('Location: profil.php');
+
 								}	
 						}	else { 	echo 'error . all fields are required';	}					
 			}
