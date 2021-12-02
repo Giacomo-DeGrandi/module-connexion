@@ -4,7 +4,7 @@
 body {
 			font-family: 'Poppins', sans-serif;
 			background: rgb(16,26,74);
-			background: radial-gradient(circle, rgba(16,26,74,1) 0%, rgba(63,8,66,1) 100%);
+			background: radial-gradient(circle, rgba(16,26,74,1) 0%, rgba(63,8,66,1) 100%); 
 			color: white;
 
 }

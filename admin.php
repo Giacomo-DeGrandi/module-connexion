@@ -34,7 +34,7 @@ $database = 'carlo-de-grandi-giacomo_modconnection';
 $servername = 'localhost:3306';
 $username = 'giditree1';
 $password = 'admin.io';
-$database = 'carlo-de-grandi-giacomo_modconnection';
+$database = 'carlo-de-grandi-giacomo_moduleconnexion'; 
 
 $conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
 

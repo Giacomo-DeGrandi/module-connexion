@@ -7,7 +7,7 @@ session_start();
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link href="modcon.css" rel="stylesheet"> 
 </head>
 <body>
@@ -31,7 +31,7 @@ $database = 'carlo-de-grandi-giacomo_modconnection';
 $servername = 'localhost:3306';
 $username = 'giditree1';
 $password = 'admin.io';
-$database = 'carlo-de-grandi-giacomo_modconnection';
+$database = 'carlo-de-grandi-giacomo_moduleconnexion';
 
 $conn = mysqli_connect($servername, $username, $password, $database);	// establish my connexion
 
