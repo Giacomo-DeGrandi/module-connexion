@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Creato il: Nov 29, 2021 alle 07:01
+-- Creato il: Dic 02, 2021 alle 11:51
 -- Versione del server: 5.7.31
 -- Versione PHP: 7.3.21
 
@@ -37,16 +37,17 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `status` int(10) NOT NULL DEFAULT '0',
   `statusad` int(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=118 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=119 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `login`, `prenom`, `nom`, `password`, `status`, `statusad`) VALUES
-(115, 'digi', 'gidi', 'treedigi', '5678', 0, 0),
+(115, 'digi', 'gidi', 'jack', '5678', 0, 0),
 (114, 'mina', 'bibi', 'babi', '1234', 0, 0),
-(1, 'admin', 'admin', 'admin', 'admin', 0, 0);
+(1, 'admin', 'admin', 'admin', 'admin', 0, 0),
+(118, 'rubennnn', 'ruben', 'ruben', 'ruben', 1, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
