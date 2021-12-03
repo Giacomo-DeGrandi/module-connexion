@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+
+
+body {
+			font-family: 'Poppins', sans-serif;
+			background: rgb(16,26,74);
+			background: radial-gradient(circle, rgba(16,26,74,1) 0%, rgba(63,8,66,1) 100%); 
+			color: white;
+
+}
+
+a {
+
+	text-decoration: none;
+	color: #F7F7F2;
+	background: linear-gradient(90deg, #F61067 0%, #55286F 100%);
+	padding: 1vh;
+	border-radius: 2vh;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+#mainpro {
+	display: flex;
+		flex-direction: column;
+}
+
+#maindiv {
+	display: flex;
+	flex-direction: column;
+}
+
+#adminmain {
+		justify-content: center;
+		align-items: center;
+		padding: 3vh;
+}
+
+#wrappermainadmin{
+	display: flex;
+}
+
+#tableuserup td {
+	font-size: 1.5em;
+}
+
+#admintable {
+		width: 80vh;
+		align-items: center;
+		padding: 3vh;
+		background-color: rgba(255, 255, 255, 0.3);
+
+}
+
+#minitableadmin th {
+		font-size:  1em;
+		background-color: rgba(255, 255, 255, 0.2);
+		border-radius: 2vh;
+		box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#minitableadmin td {
+			background-color: rgba(255, 255, 255, 0.1);
+		box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+		font-size:  0.9em;
+}
+
+#userupdate {
+	margin-left: 3vh;
+}
+
+#connbody {
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2vh;
+}
+
+#connform {
+	padding: 2vh;
+}
+#connform input {
+	font-size: 0.8em;
+	padding: 2vh;
+}
+
+#iscbody {
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+}
+
+table {
+	table-layout: fixed;
+	border-radius: 2vh;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+table th {
+	font-size: 1.2em;
+	padding: 2vh;
+}
+
+table td{
+	padding: 2vh;
+	border-radius: 2vh;
+	text-align: center;
+	
+}
+
+h1 {
+	padding: 2vh;
+}
+hr {
+	color: white;
+}
+
+#tablediv {
+	border: solid 1px white;
+	border-radius: 2vh;
+	background: linear-gradient(0deg, #F61067 0%, #55286F 100%);
+	color:	#FF7F7F2 ;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#tablediv h4 {
+	padding: 1vh;
+}
+
+#formdiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#noteform {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 4vh;
+}
+
+#note {
+		font-family: 'Poppins', sans-serif;
+		font-size: 1.2em;
+	border-radius: 2vh;
+	color: #55286F ;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+#wrapform {
+	justify-content: space-evenly;
+}
+
+input::placeholder {
+  color: #55286F;
+  opacity: 0.5;
+}
+
+form input{
+
+	font-family: 'Poppins', sans-serif;
+	padding: 1vh;
+	border-radius: 4vh;
+	font-size: 1em;
+}
+
+main {
+	padding: 2vh;
+}
+
+.buttons1 {
+	background: linear-gradient(0deg, #F61067 0%, #55286F 100%);
+	border-radius: 2vh;
+	border: 0px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	color: white;
+}
+
+header{ 
+	padding: 2vh;
+	color: #210B2C ;
+	display: flex;
+	justify-content: flex-end;
+}
+
+#wrapper form {
+	background-color: rgba(255, 255, 255, 0.486);
+	border-radius: 2vh;
+}
+
+#wrapper input {   
+	font-family: 'Poppins', sans-serif;
+	padding: 1vh;
+}
+
+#imgdivuser {
+		font-size: 0.7em;
+		padding: 1vh;
+		border-radius: 2vh;
+		background-color: rgba(255, 255, 255, 0.1);
+}
+
+#imguser{
+	object-fit: contain;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 2vh;
+			width: 50%;
+}
+
+footer {
+	margin-top: 4vh;
+	font-size: 0.6em;
+	 float: right;
+  height: 3vh;
+  display: flex;
+  align-items: flex-end;
+	height: 1vh;
+	color: whitesmoke;
+}
